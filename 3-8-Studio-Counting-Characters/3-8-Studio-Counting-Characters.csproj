@@ -6,4 +6,8 @@
     <RootNamespace>_3_8_Studio_Counting_Characters</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="..\TextFile1.txt" Link="TextFile1.txt" />
+  </ItemGroup>
+
 </Project>

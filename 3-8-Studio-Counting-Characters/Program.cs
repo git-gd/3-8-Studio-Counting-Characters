@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -9,8 +10,9 @@ namespace _3_8_Studio_Counting_Characters
     {
         static void countChars(string input)
         {
+            Console.WriteLine("Counting alphabetic characters in the string:");
             Console.WriteLine(input);
-            Console.WriteLine("_______________________");
+            Console.WriteLine(">-----<");
 
             string inputStr = input.ToLower(); // ToLower makes our search case insensitive
 
@@ -31,7 +33,7 @@ namespace _3_8_Studio_Counting_Characters
                 Console.WriteLine($"[{character}] - {charCount[character]}");
             }
 
-            Console.WriteLine("_______________________");
+            Console.WriteLine(">-----<");
         }
 
         static void Main(string[] args)
@@ -39,6 +41,30 @@ namespace _3_8_Studio_Counting_Characters
             countChars("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan sem ut ligula scelerisque sollicitudin. Ut at sagittis augue. Praesent quis rhoncus justo. Aliquam erat volutpat. Donec sit amet suscipit metus, non lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget massa. Donec nec velit non ligula efficitur luctus.");
             countChars("abcdefghijklmnopqrstuvwxyz.!01234567890 ?");
             countChars("aBbCcCdDdDeEeEe");
+
+            // $(ProjectDir) points to the directory of your .vcproj file, $(SolutionDir) is the directory of the .sln file.
+
+            string path = @".\test.txt"; // need to fix!
+
+            if (System.IO.File.Exists(path))
+            {
+                string text = System.IO.File.ReadAllText(path);
+
+                countChars(text);
+            } else
+            {
+                Console.WriteLine($"{path} was not found");
+            }
+
+                
+            string userInput;
+
+            do
+            {
+                Console.WriteLine("Enter a string to see the alphabetic character count (blank to exit):");
+                userInput = Console.ReadLine();
+                if (userInput.Length> 0) countChars(userInput);
+            } while (userInput.Length > 0);
         }
     }
 }
