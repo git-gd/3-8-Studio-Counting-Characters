@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 
 namespace _3_8_Studio_Counting_Characters
@@ -42,9 +43,8 @@ namespace _3_8_Studio_Counting_Characters
             countChars("abcdefghijklmnopqrstuvwxyz.!01234567890 ?");
             countChars("aBbCcCdDdDeEeEe");
 
-            // $(ProjectDir) points to the directory of your .vcproj file, $(SolutionDir) is the directory of the .sln file.
-
-            string path = @".\test.txt"; // need to fix!
+            Console.WriteLine("Enter the path to a text file to read:");
+            string path = Console.ReadLine(); // Bonus Mission: Read a text file
 
             if (System.IO.File.Exists(path))
             {
